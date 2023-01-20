@@ -1,0 +1,161 @@
+nav {
+    background-color: #3b5998; /* Facebook blue color */
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  nav li {
+    display: inline-block;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+  
+  nav a:hover {
+    background-color: #2d4373; /* Darker Facebook blue color */
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  td {
+    vertical-align: middle;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  img {
+    width: 500px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .paragraph {
+    padding: 20px;
+    background-color: #2771e9;
+    color: white;
+    border-radius: 10px; 
+    text-align: justify;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+
+  }
+  
+  .cta {
+    text-align: center;
+    border-radius: 10px; 
+    background-color: #2771e9; 
+    color: white;
+    padding: 20px;
+  }
+  
+  .cta h2 {
+    margin-bottom: 10px;
+  }
+  
+  .cta-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background-color: #ff5722; 
+    border-radius: 25px;
+    transition: background-color 0.2s ease-in-out; 
+  }
+  
+  .cta-btn:hover {
+    background-color: #ff8a65; 
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .fee-table th {
+    background-color: #f2f2f2;
+    font-weight: normal;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .fee-table td {
+    text-align: center;
+  }
+  
+  .fee-table td:first-child {
+    text-align: left;
+  }
+
+  form {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #2771e9; 
+    color: white;
+    border-radius: 10px;
+  }
+  
+  label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  input:focus, textarea:focus {
+    border: 2px solid #555;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    background-color: #ff5722;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #ff8a65;
+  }
+  
+  
+  
