@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif; /* Use the Arial font */
+}
+
+
+#intro-video {
+position: relative;
+}
+#intro-content {
+    background-color: #f1c40f;
+    opacity: 70%;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+color: black;
+width: 50%;
+}
+main {
+padding: 50px;
+}
+section {
+background-color: white; 
+color: #333333;
+padding: 20px;
+text-align: center; 
+box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2); 
+}
+section ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.animal-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    background-color: #f1c40f;
+    border-radius: 25px;
+    transition: background-color 0.2s ease-in-out; 
+  }
+
+.animal-btn:hover {
+    background-color: #f4d350; 
+}
+footer {
+background-color: #333333; 
+color: white;
+padding: 10px;
+text-align: center; 
+}
+
+video, audio {
+    width: 100%; /* Make the video and audio elements take up the full width of their parent container /
+    margin-top: 20px; / Add some margin to the top of the video and audio elements */
+    }
+
+
+
+
+header{
+    background-color: #333333; /* Add a dark background color to the header */
+    color: white; /* Set text color to white */
+    font-family: 'Open Sans', sans-serif; /* Use the "Open Sans" font */
+    padding: 15px; /* Add some padding to the header */
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2); /* Add a subtle box shadow */
+}
+.logo img{
+    width: 100px; /* Set width of logo image */
+    height: 100px; /* Set height of logo image */
+}
+nav{
+    display: flex;
+    justify-content: flex-end; /* Right-align navigation items */
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li{
+    margin: 0 20px; /* Add spacing between navigation items */
+}
+nav ul li a{
+    text-decoration: none;
+    color: white; /* Set text color of navigation items to white */
+    font-size: 1.2em; /* Increase font size of navigation items */
+    font-weight: bold; /* Make navigation items bold */
+    transition: all 0.2s ease-in-out; /* Add a smooth transition effect */
+}
+nav ul li a:hover{
+    color: #f1c40f; /* Change text color of navigation items on hover */
+    letter-spacing: 1px; /* Add some letter spacing to navigation items on hover */
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: white; /* Add a white background color to the dropdown menu */
+    color: #333333; /* Set text color to dark grey */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Add a subtle box shadow */
+    right: 0; /* Position the dropdown menu to the right of the navigation items */
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.dropdown-content a{
+    color: #333333; /* Set text color of dropdown menu items to dark grey */
+    padding: 12px 16px; /* Add padding to dropdown menu items */
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s ease-in-out; /* Add a smooth transition effect */
+}
+.dropdown-content a:hover{
+    background-color: #f1c40f; /* Change background color of dropdown menu items on hover */
+    color: white; /* Change text color of dropdown menu items on hover */
+}
+
+iframe {
+    width: 80%; /* Set the width of the map */
+    height: 500px; /* Set the height of the map */
+    border: 1px solid #ccc; /* Add a border to the map */
+    margin: 20px auto; /* Add some margin to the map */
+}
+

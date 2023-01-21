@@ -1,5 +1,5 @@
 nav {
-    background-color: #3b5998; /* Facebook blue color */
+    background-color: #3b5998;
     padding: 10px;
   }
   
@@ -22,7 +22,7 @@ nav {
   }
   
   nav a:hover {
-    background-color: #2d4373; /* Darker Facebook blue color */
+    background-color: #2d4373; 
   }
 
   .container {
@@ -54,7 +54,7 @@ nav {
 
   .paragraph {
     padding: 20px;
-    background-color: #2771e9;
+    background-color: #3b5998;
     color: white;
     border-radius: 10px; 
     text-align: justify;
@@ -67,7 +67,7 @@ nav {
   .cta {
     text-align: center;
     border-radius: 10px; 
-    background-color: #2771e9; 
+    background-color: #3b5998;
     color: white;
     padding: 20px;
   }
@@ -117,7 +117,7 @@ nav {
     text-align: center;
     margin-top: 50px;
     padding: 20px;
-    background-color: #2771e9; 
+    background-color: #3b5998; 
     color: white;
     border-radius: 10px;
   }
