@@ -1,0 +1,17 @@
+label {	float: left;
+    width: 150px;}
+#container{
+  width: 700px;
+  margin: auto;
+  background-color: beige;
+} 
+main{
+  padding: 50px;
+}
+.error{
+    color: red;
+    padding-left: 25%;
+}
+.hidden{
+    display: none;
+}

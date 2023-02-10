@@ -1,0 +1,17 @@
+body {
+    margin-top: 50px;
+}
+#dispTable {
+    margin: 20px, 20px;
+    border: 2px black;
+    border-collapse: collapse;
+    margin: 50px;
+}
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: beige;
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Feedback</title>
+  <link rel="stylesheet" type="text/css" href="Style.css">
+  <!-- <link rel="js" type="script/js" href="Script.js"> -->
+ </head>
+ <body onload="setFocus()">
+ <div id="container">
+	 
+	 <main>
+	 <h2>Feeback</h2>
+	 <h3>Love something? Hate something? Let us know!</h3>
+		 Note : Fields marked with an asterisk(*) are mandatory
+		 <br><br>
+		 <form id="dataForm">
+			<label>Title*:</label>
+			<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
+			<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
+			<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+			<div id="titleErr" class="error hidden"> Please select your Title</div>
+			
+			<br><br>
+			<label for="firstName">First Name*:</label>
+			<input type="text" name="firstName" id="firstName" placeholder="First Name" />
+			<div id="fnError" class="error hidden"> Please enter a valid firstName </div>
+			<br><br>
+			
+			<label for="lastName">Last Name*:</label>
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+			<div id="lnError" class="error hidden"> Please enter a valid lastName </div>
+			<br><br>
+
+			<label for="emailId">Email Id*:</label>
+			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" />
+			<div id="emailError" class="error hidden"> Please enter a valid Northeastern Email Id </div>
+			<br><br>
+
+			<label for="phoneNumber">Phone Number*:</label>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" />
+			<div id="phoneError" class="error hidden"> Please enter a valid digit phone number </div>
+			<br><br>
+
+			<label for="streetAddress1">Street Address 1*:</label>
+			<input type="text" name="streetAddress1" id="streetAddress1" placeholder="address" />
+			<div id="addrError" class="error hidden"> Please enter a valid Street Address </div>
+			<br><br>
+
+			<label for="streetAddress2">Street Address 2:</label>
+			<input type="text" class="optional" name="streetAddress2" id="streetAddress2" placeholder="address" />
+			<br><br>
+
+			<label for="city">City*:</label>
+			<input type="text" name="city" id="city" placeholder="city" />
+			<div id="cityError" class="error hidden"> Please enter a valid City </div>
+			<br><br>
+
+			<label for="state">State*:</label>
+			<input type="text" name="state" id="state" placeholder="state" />
+			<div id="stateError" class="error hidden"> Please enter a valid State </div>
+			<br><br>
+			
+            <label for="zipcode">ZipCode*:</label>
+			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" />
+			<div id="zipError" class="error hidden"> Please enter a 5 digit Zipcode </div>
+			<br><br>
+             
+            <label for="social">How did you hear*:</label>
+			<input type='checkbox' name="source" id="social" value="facebook" /> Facebook
+            <input type='checkbox' name="source" id="social" value="google" /> Google
+            <input type='checkbox' name="source" id="social" value="yelp" /> Yelp 
+			<div id="socialErr" class="error hidden"> Please select an option </div>
+			<br><br> 
+
+			<br><br>
+			<label for="univ">Select the product you bought*: </label>
+			<select name="univ" id="univ" onchange = "CourseOptions(this)">
+				<option value="default">Please Select University</option>
+				<option value="neu">Northeastern University</option>
+				<option value="bu">Boston University</option>
+				<option value="mit">Massachusetts Institute of Technology</option>
+				<option value="hu">Harvard University</option>
+				<option value="su">Suffolk University</option>
+			</select>
+			<br><br>
+			<div id="course-options" style="display: none;">
+				<br>
+				<label for="options">Please select your courses*:</label>
+				<br><br>
+				<div style="text-align:justify;">
+				  <input type='checkbox' name="course" id="checkbox1" value="course1" onclick="displayTextBox(this)"/>
+				  <label for="checkbox1">MIS</label>
+				</div>
+				<div style="text-align: justify;">
+				  <input type='checkbox' name="course" id="checkbox2" value="course2"/>
+				  <label for="checkbox2">MEM</label>
+				</div>
+				<div style="text-align: justify;">
+				  <input type='checkbox' name="course" id="checkbox3" value="course3"/>
+				  <label for="checkbox3">IE</label>
+				</div>
+			  </div>
+			<br><br>			 
+			<div id ="desc" style = "display: none; margin-left: 150px;">
+				<textarea id ="text-field" placeholder = "Describe your course" rows="5" cols="25"></textarea>
+				<br><br>
+			</div>
+			
+			<div id = "commentError" class="error hidden">Please share us what you loved about our product!</div>
+             
+			<label for="comments">Comments*:</label>
+			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+			<div id="commError" class="error hidden"> Please enter a valid Comment </div>
+			<br><br>
+			<button type="button" onclick="submitData(this)">Submit</button>
+			<input type="Reset" onclick="window.location.reload()">
+			<br><br>
+		 </form>
+	 </main>
+ </div>
+
+  <script src="Script.js"></script>
+
+ </body>
+</html>
