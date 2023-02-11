@@ -1,9 +1,12 @@
 <!doctype html>
 <html lang="en">
  <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
   <title>Feedback</title>
   <link rel="stylesheet" type="text/css" href="Style.css">
-  <!-- <link rel="js" type="script/js" href="Script.js"> -->
  </head>
  <body onload="setFocus()">
  <div id="container">
@@ -13,36 +16,36 @@
 	 <h3>Love something? Hate something? Let us know!</h3>
 		 Note : Fields marked with an asterisk(*) are mandatory
 		 <br><br>
-		 <form id="dataForm">
+		 <form id="dataForm" action="javascript:submitData(this)">
 			<label>Title*:</label>
-			<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
-			<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
-			<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+			<input type="radio" name="title" id="miss" value="Miss" required="required"/>Miss
+			<input type="radio" name="title" id="mr" value="Mr" required="required"/>Mr.
+			<input type="radio" name="title" id="mrs" value="Mrs" required="required"/>Mrs.
 			<div id="titleErr" class="error hidden"> Please select your Title</div>
 			
 			<br><br>
 			<label for="firstName">First Name*:</label>
-			<input type="text" name="firstName" id="firstName" placeholder="First Name" />
+			<input type="text" name="firstName" id="firstName" placeholder="First Name" required/>
 			<div id="fnError" class="error hidden"> Please enter a valid firstName </div>
 			<br><br>
 			
 			<label for="lastName">Last Name*:</label>
-			<input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" required/>
 			<div id="lnError" class="error hidden"> Please enter a valid lastName </div>
 			<br><br>
 
 			<label for="emailId">Email Id*:</label>
-			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" />
+			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" required/>
 			<div id="emailError" class="error hidden"> Please enter a valid Northeastern Email Id </div>
 			<br><br>
 
 			<label for="phoneNumber">Phone Number*:</label>
-			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" />
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" required/>
 			<div id="phoneError" class="error hidden"> Please enter a valid digit phone number </div>
 			<br><br>
 
 			<label for="streetAddress1">Street Address 1*:</label>
-			<input type="text" name="streetAddress1" id="streetAddress1" placeholder="address" />
+			<input type="text" name="streetAddress1" id="streetAddress1" placeholder="address" required/>
 			<div id="addrError" class="error hidden"> Please enter a valid Street Address </div>
 			<br><br>
 
@@ -51,17 +54,17 @@
 			<br><br>
 
 			<label for="city">City*:</label>
-			<input type="text" name="city" id="city" placeholder="city" />
+			<input type="text" name="city" id="city" placeholder="city" required/>
 			<div id="cityError" class="error hidden"> Please enter a valid City </div>
 			<br><br>
 
 			<label for="state">State*:</label>
-			<input type="text" name="state" id="state" placeholder="state" />
+			<input type="text" name="state" id="state" placeholder="state" required/>
 			<div id="stateError" class="error hidden"> Please enter a valid State </div>
 			<br><br>
 			
             <label for="zipcode">ZipCode*:</label>
-			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" />
+			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" required/>
 			<div id="zipError" class="error hidden"> Please enter a 5 digit Zipcode </div>
 			<br><br>
              
@@ -74,7 +77,7 @@
 
 			<br><br>
 			<label for="univ">Select the product you bought*: </label>
-			<select name="univ" id="univ" onchange = "CourseOptions(this)">
+			<select name="univ" id="univ" onchange = "CourseOptions(this)" required>
 				<option value="default">Please Select University</option>
 				<option value="neu">Northeastern University</option>
 				<option value="bu">Boston University</option>
@@ -92,28 +95,29 @@
 				  <label for="checkbox1">MIS</label>
 				</div>
 				<div style="text-align: justify;">
-				  <input type='checkbox' name="course" id="checkbox2" value="course2"/>
+				  <input type='checkbox' name="course" id="checkbox2" value="course2" onclick="displayTextBox(this)"/>
 				  <label for="checkbox2">MEM</label>
 				</div>
 				<div style="text-align: justify;">
-				  <input type='checkbox' name="course" id="checkbox3" value="course3"/>
+				  <input type='checkbox' name="course" id="checkbox3" value="course3" onclick="displayTextBox(this)"/>
 				  <label for="checkbox3">IE</label>
 				</div>
 			  </div>
 			<br><br>			 
-			<div id ="desc" style = "display: none; margin-left: 150px;">
-				<textarea id ="text-field" placeholder = "Describe your course" rows="5" cols="25"></textarea>
+			<div id ="desc" style = "display: none;">
+				<label for="courseDesc">Describe your course: </label>
+				<textarea id ="courseDesc" placeholder = "Describe your course" rows="5" cols="25" required></textarea>
 				<br><br>
 			</div>
 			
 			<div id = "commentError" class="error hidden">Please share us what you loved about our product!</div>
              
 			<label for="comments">Comments*:</label>
-			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25" required></textarea>
 			<div id="commError" class="error hidden"> Please enter a valid Comment </div>
 			<br><br>
-			<button type="button" onclick="submitData(this)">Submit</button>
-			<input type="Reset" onclick="window.location.reload()">
+			<button type="submit">Submit</button>
+			<input type="Reset" onclick="resetForm()">
 			<br><br>
 		 </form>
 	 </main>

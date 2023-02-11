@@ -1,3 +1,4 @@
+// Get all values
 var fName = document.getElementById("firstName");
 fName.addEventListener("keyup",fieldValidations);
 var lName = document.getElementById("lastName");
@@ -17,11 +18,11 @@ var zipcode = document.getElementById("zipcode");
 zipcode.addEventListener("keyup",fieldValidations);
 var comments = document.getElementById("comments");
 comments.addEventListener("keyup",fieldValidations);
-var commentBox = document.getElementById("desc");
-commentBox.addEventListener("keyup",fieldValidations);
+var courseDesc = document.getElementById("desc");
 var checkedValue = "";
 const sourcesArray = [];
 
+// Regex for all fields
 var fieldVal = /^[a-zA-Z]+$/;
 var emailVal = /^[a-zA-Z0-9._%+-]+@northeastern.edu$/;
 var phVal = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
@@ -30,6 +31,7 @@ var addReg = /^\d+\s+[\w\s]+$/;
 var zipcodeRegex = /^\d{5}$/;
 var errorMsg = false;
 
+// Validation
 function fieldValidations(fieldType)
 {
     var value = fieldType.target.value;
@@ -192,12 +194,10 @@ switch(fType)
     }
 }
 
+
+// Set focus to firstname on page load
 function setFocus()
 {
-    const chkBox = document.querySelectorAll('input[id = social]');
-	for(i=0; i<chkBox.length; i++) {
-		chkBox[i].addEventListener("input", fieldValidations);
-	}
     fName.focus();
     return true;
 }
@@ -205,17 +205,21 @@ function setFocus()
 
 
 
-
+// List box functionality
 function CourseOptions(univ) {
     var div = document.getElementById("course-options");
     div.style.display = "block";
     
     
-    
+    var cCB = document.querySelectorAll('input[name="course"]');
+    cCB.forEach(function(checkbox) {
+    checkbox.checked = false;
+  });
+  document.getElementById("desc").style.display = "none";
+
     var selDrpDwn = univ.value;
     console.log(selDrpDwn);
     var checkboxSel = document.getElementsByName("course");
-    // var p = document.getElementById("optionLabel");
     const checkbox1 = document.querySelector('#checkbox1');
     const checkbox2= document.querySelector('#checkbox2');
     const checkbox3 = document.querySelector('#checkbox3');
@@ -224,7 +228,6 @@ function CourseOptions(univ) {
     const label3 = document.querySelector('label[for="checkbox3"]');
     console.log(checkboxSel);
     console.log(checkboxSel[0].value);
-    // checkbox.nextElementSibling.textContent
     switch(selDrpDwn)
     {
         case "neu": 
@@ -273,30 +276,53 @@ function CourseOptions(univ) {
     }
 }
 
+
+// Display text area on select checkbox
 function displayTextBox(e) {
-    console.log("checked")
-    var textArea = document.getElementById("desc");
-    if (e.checked) {
-      textArea.style.display = "block";
+    var checkboxes = document.querySelectorAll('input[name="course"]:checked');
+    var desc = document.getElementById("desc");
+    if (checkboxes.length > 0) {
+      desc.style.display = "block";
     } else {
-      textArea.style.display = "none";
+      desc.style.display = "none";
     }
-	// var textBox = document.getElementById("commentBox");
-	// if(e.checked){
-    //     checkedValue = e.value
-    //     textBox.style.display = "block";
-    // }
+	
 		
 }
 
 
+// Reset all fields
+function resetForm() {
+  document.getElementById("dataForm").reset();
+  document.getElementById("titleErr").style.display = "none";
+  document.getElementById("fnError").style.display = "none";
+  document.getElementById("lnError").style.display = "none";
+  document.getElementById("emailError").style.display = "none";
+  document.getElementById("phoneError").style.display = "none";
+  document.getElementById("addrError").style.display = "none";
+  document.getElementById("cityError").style.display = "none";
+  document.getElementById("stateError").style.display = "none";
+  document.getElementById("zipError").style.display = "none";
+  document.getElementById("socialErr").style.display = "none";
+  document.getElementById("course-options").style.display = "none";
+  document.getElementById("desc").style.display = "none";
+  setFocus();
+}
+
+// Submit form button function
 function submitData(e){
     debugger;
     var selectedUnivIndex = document.getElementById("univ").options.selectedIndex;
     var selectedUnivText = document.getElementById("univ").options[selectedUnivIndex].text
-    // const checkboxes = document.querySelectorAll('input[id = social]');
-    var descComment = document.getElementById("desc");
-    var comments = document.getElementById("comments");
+    var radioButtons = document.getElementsByName("title");
+    var courseDesc = document.getElementById("courseDesc");
+    console.log(courseDesc.value)
+for (var i = 0; i < radioButtons.length; i++) {
+  if (radioButtons[i].checked) {
+    var title = radioButtons[i].value;
+    break;
+  }
+}
 
     var radios = document.getElementsByName("title");
     var radioChecked = false;
@@ -350,27 +376,13 @@ function submitData(e){
           }
     }
     console.log(selecteCoursedValues);
-
-    // var fields = document.getElementsByTagName("input");
-    // var optionalFieldFound = false;
-
-    // for (var i = 0; i < fields.length; i++) {
-    //     if (fields[i].type === "text" && fields[i].value === "") {
-    //     if (!optionalFieldFound) {
-    //         optionalFieldFound = fields[i].classList.contains("optional");
-    //     } else {
-    //         alert("Please fill in all required fields.");
-    //         return false;
-    //     }
-    //     }
-    // }
-
     
     if(errorMsg == false){
 
         console.log(e.value);
 
         const data = { 
+            title : title,
             firstName: fName.value, 
             lastName: lName.value, 
             emailId: emailId.value, 
@@ -381,18 +393,17 @@ function submitData(e){
             state: state.value,
             zipcode: zipcode.value,
             source: selecteSocialdValues,
-            productType: {
-                name: selectedUnivText,
-                value: checkedValue,
-                comments: descComment.value,
-            },
+            univ: selectedUnivText,
+            courses : selecteCoursedValues,
+            cDesc: courseDesc.value,
             comments: comments.value,
         }
         localStorage.setItem("formData", JSON.stringify(data))
         document.getElementById("dataForm").reset();
-        window.location.href= 'FormDataDisplay.html';
+        window.open("FormDataDisplay.html", "NewWindow")
 		 }
     else{
         alert("Complete the form")
     }
 	}
+    
