@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!--Meta-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="calculator.png">
+
+     <!--Bootstrap CSS-->
+     <link rel=”stylesheet” href=”css/bootstrap.css”>
+     <link rel=”stylesheet” href=”css/bootstrap-responsive.css”>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>My Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+</head>
+<style>
+  html,body{
+    width: 100%;
+  }
+  .form-control{
+    display: inline!important;
+    width: 300px;
+    
+  }
+  .error {
+    color: red;
+    max-width: 300px;
+  }
+</style>
+
+<body class="bg-light">
+<div class="w-100 d-flex justify-content-center mt-5">
+  <p class="h1">Online Calculator</p>
+</div>
+<div class="container d-flex justify-content-center font-weight-bold">
+  
+  <div class="tab-content m-2" id="nav-tabContent">
+    <nav class="mt-5 center">
+      <div class="text-center" role="tablist">
+        <p class="h4">Login</p>
+      </div>
+    </nav>
+
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <form class="form">
+
+        <!-- Email input -->
+        <div class="form-outline mb-4 pt-4">
+          <label class="form-label" for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="email" class="form-control w-100" />
+          <div class ="error" id="emailError" > Please enter a valid Northeastern Email Id </div>
+        </div>
+
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="loginName">Username</label>
+            <input type="text" id="loginName" name="name" class="form-control w-100" />
+            <div class ="error" id="userError" > Please enter a valid Username </div>
+          </div>
+  
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="pass" class="form-control w-100" />
+          <div class ="error" id="passError" > Password must have atleast one capital letter, a number, a special character and must be between 8 to 16 characters</div>
+        </div>
+  
+        <div class="w-100 d-flex justify-content-center">
+          <a type="submit" class="btn btn-primary btn-block mb-4" id="Submit" >Login</a>
+        </div>
+
+      </form>
+    </div>
+  
+    
+  </div>
+</div>
+
+<script>
+  //var emailId = $("loginEmail").val();
+  $("#emailError").hide();
+  $("#userError").hide();
+  $("#passError").hide();
+  var er1 = 1;
+  var er2 = 1;
+  var er3 = 1;
+  $("#loginEmail").on('keydown',fieldValidations);
+  $("#loginName").on('keydown',fieldValidations);
+  $("#loginPassword").on('keydown',fieldValidations);
+  var emailVal = /^\w+([\.-]?\w+)*[@northeastern.edu]*(\.\w{2,3})+$/;
+  var nameVal = /^[a-zA-Z ]+$/;
+  var passVal = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,16}$/;
+
+  function fieldValidations (fieldType) {
+    var fieldVal = fieldType.target.value;
+    var fieldName = this.name;
+
+    switch(fieldName)
+    {
+      case "email":
+        if(!fieldVal.match(emailVal) || fieldVal.length==0)
+          { 
+            $("#emailError").show();
+            er1=1;                    
+          }
+        else
+          {
+            $("#emailError").hide();
+            er1=0;
+          }
+        break;
+      case "name":
+        if(!fieldVal.match(nameVal) || fieldVal.length==0)
+          {
+            $("#userError").show();
+            er2=1;
+          }
+        else
+          {
+            $("#userError").hide();
+            er2=0;
+          }
+        break;
+      case "pass":
+        if(!fieldVal.match(passVal) || fieldVal.length==0)
+          {
+            $("#passError").show();
+            er3=1;
+          }
+        else
+          {
+            $("#passError").hide();
+            er3=0;
+          }
+        break;
+    }
+  }
+    $("#Submit").on("click",function(){
+      if(er1==0 && er2==0 && er3==0)
+      {
+        window.location.href = "calculator.html";
+        var Username = $('#loginName').val();
+        localStorage.setItem("UserName", Username);
+        $(".form")[0].reset();
+      }
+      else
+      alert("Please check all the errors, and input valid details !");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!--Meta-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!--Bootstrap CSS-->
+     <link rel=”stylesheet” href=”css/bootstrap.css”>
+     <link rel=”stylesheet” href=”css/bootstrap-responsive.css”>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="icon" type="image/png" href="deadline.png">
+    <title>Stop Watch</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+</head>
+<style>
+    #form{
+        width: 40%;
+        min-width: 500px;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        padding: 20px 0px 50px 0px;
+        border-radius: 10px;
+    
+    }
+    .timer {
+        position: relative;
+        width: 92%;
+        background: #ffffff;
+        left: 4%;
+        padding: 25px 0;
+        font-family: 'Roboto mono',monospace;
+        color: #0381bb;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(28, 28, 28, 0.25);
+    }
+    #buttons {
+        padding-top: 10%;
+    }
+</style>    
+<body class="bg-light d-flex">
+    <div class="card justify-content-center" id="form">
+        <h1 style="margin-bottom: 40px; font-family: 'Roboto mono',monospace; text-align: center;">Stop Watch</h1>
+        <div class="card-body timer">
+            00 : 00 : 00 
+        </div>
+        <div class="form-outline  d-flex" id="buttons">
+            <button type="button" class="btn btn-outline-secondary flex-fill mx-2" id="Start" style="background-color: #0F823B; color:#ffffff">Start  <i class="fas fa-play"></i>
+            </button>
+            <button type="button" class="btn btn-outline-secondary flex-fill mx-2" id="Pause" style="background-color: #FF5252; color:#ffffff">Pause  <i class="fas fa-pause"></i>
+            </button>
+            <button type="button" class="btn btn-outline-secondary flex-fill mx-2" id="Reset" style="background-color: #1f73fd; color:#ffffff">Reset  <i class="fas fa-redo"></i>
+            </button>
+        </div>
+    </div>
+</body>
+
+    <script>
+        let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+        let timer = document.querySelector('.timer');
+        let intervalId = null;
+
+        const startTimer = async () => {
+            if (intervalId !== null) {
+                clearInterval(intervalId);
+            }
+            return new Promise(resolve => {
+                intervalId = setInterval(() => {
+                    milliseconds += 10;
+                    if (milliseconds == 1000) {
+                        milliseconds = 0;
+                        seconds++;
+                        if (seconds == 60) {
+                            seconds = 0;
+                            minutes++;
+                            if (minutes == 60) {
+                                minutes = 0;
+                                hours++;
+                            }
+                        }
+                    }
+                    let h = hours < 10 ? "0" + hours : hours;
+                    let m = minutes < 10 ? "0" + minutes : minutes;
+                    let s = seconds < 10 ? "0" + seconds : seconds;
+
+                    timer.innerHTML = ` ${h} : ${m} : ${s}`;
+                    resolve();
+                }, 10);
+            });
+        }
+
+        $('#Start').on('click', async () => {
+            await startTimer();
+        });
+
+        $('#Pause').on('click', () => {
+            clearInterval(intervalId);
+        });
+
+        $('#Reset').on('click', () => {
+            clearInterval(intervalId);
+            [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+            timer.innerHTML = '00 : 00 : 00';
+        });
+    </script>
+</html>
