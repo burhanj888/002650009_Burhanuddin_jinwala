@@ -1,0 +1,146 @@
+@import '_config.scss';
+
+
+
+%animal-video {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 20px 0;
+	&::-webkit-media-controls {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: $background-color_1;
+		border-radius: 10px;
+		padding: 5px;
+	}
+	&::-webkit-media-controls-play-button {
+		height: 40px;
+		width: 40px;
+		border: none;
+		outline: none;
+		background-color: $background-color_2;
+		cursor: pointer;
+		margin: 0 10px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url('play-icon.png');
+	}
+	&::-webkit-media-controls-pause-button {
+		height: 40px;
+		width: 40px;
+		border: none;
+		outline: none;
+		background-color: $background-color_2;
+		cursor: pointer;
+		margin: 0 10px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url('pause-icon.png');
+	}
+	&::-webkit-media-controls-current-time-display {
+		font-size: 12px;
+		font-family: $font-family_1;
+		color: $color_1;
+		margin: 0 10px;
+	}
+	&::-webkit-media-controls-time-remaining-display {
+		font-size: 12px;
+		font-family: $font-family_1;
+		color: $color_1;
+		margin: 0 10px;
+	}
+}
+audio {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 20px 0;
+	&::-webkit-media-controls {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: $background-color_1;
+		border-radius: 10px;
+		padding: 5px;
+	}
+	&::-webkit-media-controls-play-button {
+		height: 40px;
+		width: 40px;
+		border: none;
+		outline: none;
+		background-color: $background-color_2;
+		cursor: pointer;
+		margin: 0 10px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url('play-icon.png');
+	}
+	&::-webkit-media-controls-pause-button {
+		height: 40px;
+		width: 40px;
+		border: none;
+		outline: none;
+		background-color: $background-color_2;
+		cursor: pointer;
+		margin: 0 10px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url('pause-icon.png');
+	}
+	&::-webkit-media-controls-current-time-display {
+		font-size: 12px;
+		font-family: $font-family_1;
+		color: $color_1;
+		margin: 0 10px;
+	}
+	&::-webkit-media-controls-time-remaining-display {
+		font-size: 12px;
+		font-family: $font-family_1;
+		color: $color_1;
+		margin: 0 10px;
+	}
+	&::-webkit-media-controls-volume-slider {
+		margin: 0 10px;
+		height: 10px;
+		-webkit-appearance: none;
+		background-color: $background-color_3;
+		outline: none;
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			height: 20px;
+			width: 20px;
+			background-color: $background-color_4;
+			border-radius: 50%;
+			margin-top: -5px;
+		}
+		&::-moz-range-thumb {
+			-webkit-appearance: none;
+			height: 20px;
+			width: 20px;
+			background-color: $background-color_4;
+			border-radius: 50%;
+			margin-top: -5px;
+		}
+	}
+	&::-webkit-media-controls-mute-button {
+		height: 40px;
+		width: 40px;
+		border: none;
+		outline: none;
+		background-color: $background-color_2;
+		cursor: pointer;
+		margin: 0 10px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url('mute-icon.png');
+	}
+	&::-webkit-media-controls-unmute-button {
+		background-image: url('unmute-icon.png');
+	}
+}
+
+video{
+	@extend %animal-video
+}

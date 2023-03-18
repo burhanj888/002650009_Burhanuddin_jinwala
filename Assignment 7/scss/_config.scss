@@ -1,0 +1,36 @@
+$color_1: black;
+$color_2: #333333;
+$color_3: white;
+$color_4: #3e8e41;
+$font-family_1: Arial, sans-serif;
+$font-family_2: 'Open Sans', sans-serif;
+$background-color_1: #3e8e41;
+$background-color_2: white;
+$background-color_3: #4fb452;
+$background-color_4: #333333;
+$primary-color: #007bff;
+$secondary-color: #333333;
+
+@mixin textAlign(){
+    text-align: center;
+}
+@mixin htag-align(){
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+@mixin ptag-align(){
+    text-align: center;
+    @include interpolation(size,1.2rem );
+    // font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+@mixin interpolation($changeable, $val){
+    font-#{$changeable} : $val;
+}
+
+$colors: #a0f9a3, #F44336, #3F51B5, #9C27B0;
+
+@function color-picker($index) {
+    @return nth($colors, ($index % length($colors)) + 1);
+  }
