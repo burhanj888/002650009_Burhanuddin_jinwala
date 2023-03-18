@@ -1,52 +1,26 @@
-Part B:
+Zoo Website
+This project is a two-page website for a zoo. The first page contains a navbar with flex, div sections, video, cards using CSS grid, button, h tags, p tags, footer, iframe for the map, mailto, tel, etc. The second page contains a header, video with all controls and flex property, audio with all the controls, footer, etc.
 
-Create two pages website for a coffee shop, Travel, or anything with a Usage of a minimum of 5-6 HTML5 tags like audio, video, header, footer, etc.
-Note: we do not want rich UI, but it should be presentable. Use appropriate colors for the website, headings, and layouts, use relevant images, and try to break the page down into sections for better visual appeal (be creative). Use an external CSS file for styling.
+Technologies Used
+HTML5
+CSS3
+SASS/SCSS
+CSS Grid
+Flexbox
 
+SASS Features Implemented
+Variables
+Custom Properties
+Nesting
+Interpolation
+Placeholder Selectors
+Mixins
+Functions
+import
 
-A two page Zoo landing page website is created to show some glimpses of zoo using video and audio.
+How to Use
+To use this project, simply download the files or clone the repository. Then, open the index.html and animals.html files in your browser.
 
-Favicon: for head icon
-stylesheet for external css
-
-home page: index.html
-1) Header tag:
-For top section; Contains logo, navigation menus and a dropdown menu.
-2) img tag:
-for logo image in header section.
-3) Main tag:
-For body content.
-4) Video tag:
-For autoplay video without controls of a tiger in landing page.
-5) Section tag:
-to divide main body part into multiple sections.
-6) Iframe:
-For map.
-7) Footer:
-for bottom section containing copyright information.
-
-Other common tags like ul: unordered list, a: anchor tag for hyperlink, p: paragrph, h1,h2,h4: for headings, div: divisoning
-
-Exhibited animals page: animals.html
-1) Header tag:
-For top section; Contains logo, navigation menus and a dropdown menu.
-2) img tag:
-for logo image in header section.
-3) Main tag:
-For body content.
-4) Section tag:
-to divide main body part into multiple sections.
-5) Video tag:
-To play videos with controls.
-6) Audio tag:
-To listen sounds of animal exhibited in zoo (with controls)
-7) b tag:
-for font formatting to bold.
-8) Footer:
-for bottom section containing copyright information.
-
-Other common tags like ul: unordered list, a: anchor tag for hyperlink, p: paragrph, h1,h2,h4: for headings, div: divisoning
-
-video credits: https://www.pexels.com/
-audio credits: https://www.videvo.net/
-logo image credit: https://www.pinterest.com/pin/klner-zoo-logo--193865958940675859/
+Credits
+The video and audio files used in this project were obtained from Pexels.
+The map used in this project was obtained from Google Maps.
