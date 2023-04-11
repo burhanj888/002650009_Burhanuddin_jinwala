@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css?family=Karla:400,700|Pacifico&display=swap");
+
+:root {
+  --pacifico: "Pacifico", cursive;
+  --karla: "Karla", sans-serif;
+  --background-color: #002a58;
+  --font-color: #121619;
+  --container-background: #ffffff;
+  --secondary-font-color: #808080;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--karla);
+  background: linear-gradient(to right, #aaff22, #1affd9, #2a01f5);
+}
+.container {
+  width: 45%;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  margin: 40px auto;
+  background-color: var(--container-background);
+  padding: 16px;
+}
+.container-forecast {
+  width: 45%;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  margin: 40px auto;
+  background-color: var(--container-background);
+  padding: 16px;
+  text-align: center;
+}
+.forecast-space {
+  /* display: inline-block;
+  padding: 58px; */
+  display: inline-block;
+  padding: 58px;
+}
+.heading {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 16px;
+  color: var(--font-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.search-form {
+  display: flex;
+  border: 1px solid var(--background-color);
+  border-radius: 10px;
+  overflow: hidden;
+  outline: 0;
+  margin: 16px auto;
+  height: 50px;
+}
+.search-form input {
+  flex-basis: 80%;
+  border: none;
+  padding: 8px;
+  font-family: var(--karla);
+}
+.search-form :focus {
+  outline: 0;
+}
+.search-form button {
+  flex-basis: 20%;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  background-color: var(--background-color);
+  color: var(--container-background);
+}
+.sub-heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.info .date {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  color: var(--secondary-font-color);
+}
+.location {
+  color: var(--secondary-font-color);
+  font-size: 1.5rem;
+  text-align: center;
+}
+.linkToForecast {
+  text-decoration: none;
+  color: black;
+}
+
+.forecast-info {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast-info :hover {
+  cursor: pointer;
+}
+
+.forecastList {
+  white-space: nowrap;
+}
+
+.forecastList li{
+  display: inline;
+}
+
+/* .forecast-info {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  text-decoration: none;
+} */
+.forecast-value {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecast-value .degrees {
+  font-size: 4rem;
+}
+
+.forecast-value .degrees-count {
+  position: relative;
+  padding: 0px 16px;
+}
+
+.forecast-value .degrees-count::after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border: 1px solid var(--font-color);
+  top: 0;
+  right: 0px;
+  border-radius: 300px;
+}
+.dailyForecast {
+  display: inline-block;
+  padding: 5px;
+}
+.forecastDate {
+  font-weight: 600;
+  display: block;
+}
+.weather-condition {
+  /* font-family: var(--pacifico); */
+  font-size: 3rem;
+  color: var(--background-color);
+}
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-align: center;
+}
+.list li {
+  margin: 16px auto;
+  display: inline;
+}
+.list li#Max{
+  padding-left: 20px;
+}
+.helper-text {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--secondary-font-color);
+}
+
+.return-btn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.return-btn:hover {
+  background-color: #3e8e41; /* Dark green */
+}
